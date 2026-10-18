@@ -288,6 +288,7 @@ SET @SPELL_AURA_SCHOOL_HEAL_ABSORB                             = 301; -- EffectM
 SET @SPELL_AURA_MOD_DAMAGE_DONE_VERSUS_AURASTATE               = 303; -- EffectMiscValueA: ID from AuraStateType (master/src/server/shared/SharedDefines.h)
 SET @SPELL_AURA_MOD_FAKE_INEBRIATE                             = 304; -- EffectMiscValueA: Creature ID
 SET @SPELL_AURA_MOD_CREATURE_AOE_DAMAGE_AVOIDANCE              = 310; -- EffectMiscValueA: School Mask
+SET @SPELL_AURA_ALTERED_FORM                                   = 302; -- Custom (requires patched client): draws the player as their race's altered form (e.g. Worgen as Gilnean). Unused by 3.3.5 spells and ignored by AzerothCore
 
 -- Miscellaneous
 SET @Male                                                      =    0;
