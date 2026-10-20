@@ -405,6 +405,8 @@ SET @LightforgedDraeneiMaleModel                               =    @NextModelID
 SET @LightforgedDraeneiFemaleModel                             =    @NextModelID := @NextModelID +1; -- 40020;
 SET @GoblinMaleModel                                           =    @NextModelID := @NextModelID +1; -- 40021; -- NPC: 831
 SET @GoblinFemaleModel                                         =    @NextModelID := @NextModelID +1; -- 40022; -- NPC: 832
+SET @VrykulMaleModel                                           =    @NextModelID := @NextModelID +1; -- 40023;
+SET @VrykulFemaleModel                                         =    @NextModelID := @NextModelID +1; -- 40024;
 
 -- Display IDs
 SET @NextDisplayID                                             =    40000;
@@ -449,6 +451,8 @@ SET @GoblinMaleDisplay                                         =    @NextDisplay
 SET @GoblinFemaleDisplay                                       =    @NextDisplayID := @NextDisplayID +1; -- 40022; -- NPC: 6895
 SET @GilneanMaleDisplay                                        =    @NextDisplayID := @NextDisplayID +1; -- 40023;
 SET @GilneanFemaleDisplay                                      =    @NextDisplayID := @NextDisplayID +1; -- 40024;
+SET @VrykulMaleDisplay                                         =    @NextDisplayID := @NextDisplayID +1; -- 40025;
+SET @VrykulFemaleDisplay                                       =    @NextDisplayID := @NextDisplayID +1; -- 40026;
 
 -- CreatureDisplayInfoExtra
 SET @NextDisplayExtraID                                        =    45424;
@@ -490,6 +494,8 @@ SET @LightforgedDraeneiMaleDisplayExtra                        =    @NextDisplay
 SET @LightforgedDraeneiFemaleDisplayExtra                      =    @NextDisplayExtraID := @NextDisplayExtraID +1; -- 45465;
 SET @GoblinMaleDisplayExtra                                    =    @NextDisplayExtraID := @NextDisplayExtraID +1; -- 45566;
 SET @GoblinFemaleDisplayExtra                                  =    @NextDisplayExtraID := @NextDisplayExtraID +1; -- 45567;
+SET @VrykulMaleDisplayExtra                                    =    @NextDisplayExtraID := @NextDisplayExtraID +1; -- 45568;
+SET @VrykulFemaleDisplayExtra                                  =    @NextDisplayExtraID := @NextDisplayExtraID +1; -- 45569;
 
 -- creature_template
 SET @NextCreatureID                                            =    55273;
@@ -571,6 +577,7 @@ SET @NagaRacials                                               =      802;
 SET @TaunkaRacials                                             =      803;
 SET @VoidElfRacials                                            =      804;
 SET @LightforgedDraeneiRacials                                 =      805;
+SET @VrykulRacials                                             =      806;
 
 -- Racial spells
 SET @Cannibalize                                               = @SpellCannibalize; -- Undead racial
@@ -1471,8 +1478,8 @@ SET @GilneanFaction                                            =     1185;
 SET @GilneanPlayer                                             =     1186;
 SET @NagaFaction                                               =     1187;
 SET @NagaPlayer                                                =     1188;
-SET @TaunkaFaction                                             =     2231; -- Taunka of the Horde
-SET @TaunkaPlayer                                              =     2232; -- vacant slot
+SET @TaunkaFaction                                             =     2233; -- Taunka of the Horde
+SET @TaunkaPlayer                                              =     2234; -- vacant slot
 
 -- Faction templates
 SET @GoblinFactionTemplate                                     =     2238; -- References @GoblinPlayer
@@ -1493,6 +1500,7 @@ SET @NagaFactionTemplate                                       =     2251; -- Re
 SET @TaunkaFactionTemplate                                     =     2252; -- References @TaunkaPlayer
 SET @VoidElfFactionTemplate                                    =     2253; -- References @VoidElfPlayer
 SET @LightforgedDraeneiFactionTemplate                         =     2254; -- References @LightforgedDraeneiPlayer
+SET @VrykulFactionTemplate                                     =     2255; -- References @VrykulPlayer
 
 -- Reputation Indices
 SET @GoblinFactionRepIndex                                     =    105;
@@ -1513,6 +1521,7 @@ SET @NagaFactionRepIndex                                       =    119;
 SET @TaunkaFactionRepIndex                                     =    120;
 SET @VoidElfFactionRepIndex                                    =    121;
 SET @LightforgedDraeneiFactionRepIndex                         =    122;
+SET @VrykulFactionRepIndex                                     =    123;
 
 -- Achievements
 SET @KnowThyEnemyAlliance                                      =     246;
@@ -1537,6 +1546,7 @@ SET @NagaAchievement                                           =    1443;
 SET @TaunkaAchievement                                         =    1444;
 SET @VoidElfAchievement                                        =    1445;
 SET @LightforgedDraeneiAchievement                             =    1446;
+SET @VrykulAchievement                                         =    1447;
 
 SET @Level80AchievementDescriptionenUS                         = 'Level to 80';
 SET @Level80AchievementDescriptionkoKR                         = '80 레벨';
@@ -1628,6 +1638,10 @@ SET @LightforgedDraeneiCriteria1                               =    19270; -- Ac
 SET @LightforgedDraeneiCriteria2                               =    19271; -- Achievement 2422: Shake Your Bunny-Maker
 SET @LightforgedDraeneiCriteria3                               =    19272; -- Achievement 291: Check Your Head
 SET @LightforgedDraeneiCriteria4                               =    19273; -- @LightforgedDraeneiAchievement: Realm First! Level 80 Lightforged Draenei
+SET @VrykulCriteria1                                           =    19274; -- Achievement 246: Know Thy Enemy
+SET @VrykulCriteria2                                           =    19275; -- Achievement 2422: Shake Your Bunny-Maker
+SET @VrykulCriteria3                                           =    19276; -- Achievement 291: Check Your Head
+SET @VrykulCriteria4                                           =    19277; -- @VrykulAchievement: Realm First! Level 80 Vrykul
 
 -- Classes
 SET @Warrior                                                   =      1;
