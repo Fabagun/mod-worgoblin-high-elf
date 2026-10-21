@@ -40,18 +40,9 @@ If you want to change something, simply add or edit an SQL file and have it appl
 # Features
 
 ## Playable Races
-The project currently includes the following custom playable races:
+The pipeline can add up to 31 playable races. attempting to add more will cause an overflow in the racemasks.
 
-* **Worgen**
-* **Goblin**
-* **High Elf**
-* **Mag'har Orc**
-* **Ogre**
-* **Dark Iron Dwarf**
-* **Zandalari Troll**
-* **Vulpera**
-
-More details are found in each modpak's own readme file.
+Details are found in each modpak's own readme file.
 
 ---
 
