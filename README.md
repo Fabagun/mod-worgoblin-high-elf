@@ -1,4 +1,5 @@
 # mod-worgoblin-high-elf
+(This is the default 32-bit racemask version. Use the [256-bit](https://github.com/Medviten/WHE-256-bit) version if you need more than 31 playable races.)
 
 > [!WARNING]
 >
