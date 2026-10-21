@@ -415,6 +415,8 @@ SET @ThinHumanMaleModel                                        =    @NextModelID
 SET @TuskarrMaleModel                                          =    @NextModelID := @NextModelID +1; -- male only
 SET @DarkfallenMaleModel                                       =    @NextModelID := @NextModelID +1;
 SET @DarkfallenFemaleModel                                     =    @NextModelID := @NextModelID +1;
+SET @NightborneMaleModel                                       =    @NextModelID := @NextModelID +1;
+SET @NightborneFemaleModel                                     =    @NextModelID := @NextModelID +1;
 
 -- Display IDs
 SET @NextDisplayID                                             =    40000;
@@ -473,6 +475,8 @@ SET @TuskarrMaleDisplay                                        =    @NextDisplay
 SET @TuskarrFemaleDisplay                                      =    @NextDisplayID := @NextDisplayID +1;
 SET @DarkfallenMaleDisplay                                     =    @NextDisplayID := @NextDisplayID +1;
 SET @DarkfallenFemaleDisplay                                   =    @NextDisplayID := @NextDisplayID +1;
+SET @NightborneMaleDisplay                                     =    @NextDisplayID := @NextDisplayID +1;
+SET @NightborneFemaleDisplay                                   =    @NextDisplayID := @NextDisplayID +1;
 
 -- CreatureDisplayInfoExtra
 SET @NextDisplayExtraID                                        =    45424;
@@ -528,6 +532,8 @@ SET @TuskarrMaleDisplayExtra                                   =    @NextDisplay
 SET @TuskarrFemaleDisplayExtra                                 =    @NextDisplayExtraID := @NextDisplayExtraID +1;
 SET @DarkfallenMaleDisplayExtra                                =    @NextDisplayExtraID := @NextDisplayExtraID +1;
 SET @DarkfallenFemaleDisplayExtra                              =    @NextDisplayExtraID := @NextDisplayExtraID +1;
+SET @NightborneMaleDisplayExtra                                =    @NextDisplayExtraID := @NextDisplayExtraID +1;
+SET @NightborneFemaleDisplayExtra                              =    @NextDisplayExtraID := @NextDisplayExtraID +1;
 
 -- creature_template
 SET @NextCreatureID                                            =    55273;
@@ -615,6 +621,7 @@ SET @MechagnomeRacials                                         =      808;
 SET @ThinHumanRacials                                          =      809;
 SET @TuskarrRacials                                            =      810;
 SET @DarkfallenRacials                                         =      811;
+SET @NightborneRacials                                         =      812;
 
 -- Racial spells
 SET @Cannibalize                                               = @SpellCannibalize; -- Undead racial
@@ -1077,6 +1084,12 @@ SET @MechanoHogSkillLineAbility2                               =    20290; -- Ho
 SET @ActivatePrimarySpec                                       =    20867;
 SET @ActivateSecondarySpec                                     =    20868;
 SET @RidingSkill100SkillLineAbility                            =    31494; -- F-015 (Journeyman Riding passive)
+SET @NightborneSkillLineAbility1                               =    31495;
+SET @NightborneSkillLineAbility2                               =    31496;
+SET @NightborneSkillLineAbility3                               =    31497;
+SET @NightborneSkillLineAbility4                               =    31498;
+SET @NightborneSkillLineAbility5                               =    31499;
+SET @NightborneSkillLineAbility6                               =    31500;
 
 -- Racial SkillRaceClass
 SET @WorgenRacialSkillRaceClass                                =      971;
@@ -1545,6 +1558,7 @@ SET @MechagnomeFactionTemplate                                 =     2258; -- Re
 SET @ThinHumanFactionTemplate                                  =     2259; -- References @ThinHumanPlayer
 SET @TuskarrFactionTemplate                                    =     2260; -- References @TuskarrPlayer
 SET @DarkfallenFactionTemplate                                 =     2261; -- References @DarkfallenPlayer
+SET @NightborneFactionTemplate                                 =     2262; -- References @NightbornePlayer
 
 -- Reputation Indices
 SET @GoblinFactionRepIndex                                     =    105;
@@ -1572,6 +1586,7 @@ SET @MechagnomeFactionRepIndex                                 =    126;
 SET @ThinHumanFactionRepIndex                                  =    127;
 SET @TuskarrFactionRepIndex                                    =    128;
 SET @DarkfallenFactionRepIndex                                 =    129;
+SET @NightborneFactionRepIndex                                 =    130;
 
 -- Achievements
 SET @KnowThyEnemyAlliance                                      =     246;
@@ -1603,6 +1618,7 @@ SET @MechagnomeAchievement                                     =    1450;
 SET @ThinHumanAchievement                                      =    1451;
 SET @TuskarrAchievement                                        =    1452;
 SET @DarkfallenAchievement                                     =    1453;
+SET @NightborneAchievement                                     =    1454;
 
 SET @Level80AchievementDescriptionenUS                         = 'Level to 80';
 SET @Level80AchievementDescriptionkoKR                         = '80 레벨';
@@ -1722,6 +1738,10 @@ SET @DarkfallenCriteria1                                       =    19298; -- Ac
 SET @DarkfallenCriteria2                                       =    19299; -- Achievement 2422: Shake Your Bunny-Maker
 SET @DarkfallenCriteria3                                       =    19300; -- Achievement 291: Check Your Head
 SET @DarkfallenCriteria4                                       =    19301; -- @DarkfallenAchievement: Realm First! Level 80
+SET @NightborneCriteria1                                       =    19302; -- Achievement 246: Know Thy Enemy
+SET @NightborneCriteria2                                       =    19303; -- Achievement 2422: Shake Your Bunny-Maker
+SET @NightborneCriteria3                                       =    19304; -- Achievement 291: Check Your Head
+SET @NightborneCriteria4                                       =    19305; -- @NightborneAchievement: Realm First! Level 80 Nightborne
 
 -- Classes
 SET @Warrior                                                   =      1;

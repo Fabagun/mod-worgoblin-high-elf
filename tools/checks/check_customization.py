@@ -268,7 +268,9 @@ def check_race(race, gender, rows, hair_geo, facial, barber, hairtex, geosets, e
         if types and not ranges(types):
             out.append(f"{SECTION_NAMES[sec]} types not contiguous: {types}")
         for t in types:
-            miss = player_skins - colours(sec, t)
+            # DK-only types (every row has flag 4, e.g. Worgen's extra faces) only need the skins they are for
+            dk_only = all((r["flags"] or 0) & 4 for r in by_sec[sec] if r["type"] == t)
+            miss = set() if dk_only else player_skins - colours(sec, t)
             if miss:
                 out.append(f"{SECTION_NAMES[sec]} type {t} missing skin colours {sorted(miss)}")
             extra = colours(sec, t) - skins
