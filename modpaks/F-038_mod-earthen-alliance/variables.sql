@@ -1,0 +1,187 @@
+-- Race ID
+SET @AllianceEarthen                      := @NextRace := @NextRace +1;
+SET @AllianceEarthenMask                  = 1 << (@AllianceEarthen - 1);
+SET @AllianceEarthenHelmetMask            = 1 << @AllianceEarthen;
+
+-- Important variable updates (Alliance vs. Horde)
+SET @AllianceMask                         = @AllianceMask    | @AllianceEarthenMask;
+SET @BarrensBros                          = @HordeMask    & ~@UndercityMask; -- important if Horde
+SET @PlayableRaceMask                     = @PlayableRaceMask | @AllianceEarthenMask;
+SET @GunHunters                           = @GunHunters      | @AllianceEarthenMask;
+SET @AllianceEarthenLanguage              = 7; -- 7 for Alliance, 1 for Horde (ChrRaces.dbc)
+SET @AllianceEarthenAlliance              = 0; -- 0 for Alliance, 1 for Horde (ChrRaces.dbc)
+SET @AllianceEarthenKnowThyEnemy          = @KnowThyEnemyAlliance;
+
+-- Miscellaneous
+SET @AllianceEarthenHome                  = @Dwarf; -- classes, start outfits, start position, action bars and stats are copied from this race
+SET @AllianceEarthenExplorationSound      = @DwarfExplorationSound;
+SET @AllianceEarthenCinematicSequence     = @DwarfCinematicSequence;
+SET @AllianceEarthenBlood                 = 1;
+SET @AllianceEarthenMaleModelPath         = 'custom\\earthen\\native\\male\\earthendwarfmale.mdx';
+SET @AllianceEarthenFemaleModelPath       = 'custom\\earthen\\native\\female\\earthendwarffemale.mdx';
+SET @AllianceEarthenMaleFootprint         = @FootprintShoe;
+SET @AllianceEarthenFemaleFootprint       = @FootprintShoe;
+SET @AllianceEarthenRacials               = @EarthenRacials;
+SET @AllianceEarthenFaction               = 1191; -- vacant slot
+SET @AllianceEarthenPlayer                = 1192; -- vacant slot
+
+-- Strings
+SET @AllianceEarthenClientPrefix          = 'Dw'; -- Dwarf prefix, so Dwarf helmet models are used
+SET @AllianceEarthenClientString          = 'AllianceEarthen';
+SET @AllianceEarthenFacialHairCustomization1 = 'NORMAL';
+SET @AllianceEarthenFacialHairCustomization2 = 'NORMAL';
+SET @AllianceEarthenHairCustomization     = 'NORMAL';
+
+-- Localization Strings
+SET @AllianceEarthenenUS                  = 'Earthen';
+SET @AllianceEarthenkoKR                  = '';
+SET @AllianceEarthenfrFR                  = '';
+SET @AllianceEarthendeDE                  = '';
+SET @AllianceEarthenzhCN                  = '';
+SET @AllianceEarthenzhTW                  = '';
+SET @AllianceEarthenesES                  = '';
+SET @AllianceEarthenesMX                  = '';
+SET @AllianceEarthenruRU                  = '';
+SET @AllianceEarthenjaJP                  = '';
+SET @AllianceEarthenptPT                  = '';
+SET @AllianceEarthenitIT                  = '';
+SET @AllianceEarthenUnk1                  = '';
+SET @AllianceEarthenUnk2                  = '';
+SET @AllianceEarthenUnk3                  = '';
+SET @AllianceEarthenUnk4                  = '';
+
+SET @AllianceEarthenFemaleenUS            = '';
+SET @AllianceEarthenFemalekoKR            = '';
+SET @AllianceEarthenFemalefrFR            = '';
+SET @AllianceEarthenFemaledeDE            = '';
+SET @AllianceEarthenFemalezhCN            = '';
+SET @AllianceEarthenFemalezhTW            = '';
+SET @AllianceEarthenFemaleesES            = '';
+SET @AllianceEarthenFemaleesMX            = '';
+SET @AllianceEarthenFemaleruRU            = '';
+SET @AllianceEarthenFemalejaJP            = '';
+SET @AllianceEarthenFemaleptPT            = '';
+SET @AllianceEarthenFemaleitIT            = '';
+SET @AllianceEarthenFemaleUnk1            = '';
+SET @AllianceEarthenFemaleUnk2            = '';
+SET @AllianceEarthenFemaleUnk3            = '';
+SET @AllianceEarthenFemaleUnk4            = '';
+
+SET @AllianceEarthenMaleenUS              = '';
+SET @AllianceEarthenMalekoKR              = '';
+SET @AllianceEarthenMalefrFR              = '';
+SET @AllianceEarthenMaledeDE              = '';
+SET @AllianceEarthenMalezhCN              = '';
+SET @AllianceEarthenMalezhTW              = '';
+SET @AllianceEarthenMaleesES              = '';
+SET @AllianceEarthenMaleesMX              = '';
+SET @AllianceEarthenMaleruRU              = '';
+SET @AllianceEarthenMalejaJP              = '';
+SET @AllianceEarthenMaleptPT              = '';
+SET @AllianceEarthenMaleitIT              = '';
+SET @AllianceEarthenMaleUnk1              = '';
+SET @AllianceEarthenMaleUnk2              = '';
+SET @AllianceEarthenMaleUnk3              = '';
+SET @AllianceEarthenMaleUnk4              = '';
+
+SET @AllianceEarthenRacialNameenUS        = 'Racial - Earthen';
+SET @AllianceEarthenRacialNamekoKR        = '';
+SET @AllianceEarthenRacialNamefrFR        = '';
+SET @AllianceEarthenRacialNamedeDE        = '';
+SET @AllianceEarthenRacialNamezhCN        = '';
+SET @AllianceEarthenRacialNamezhTW        = '';
+SET @AllianceEarthenRacialNameesES        = '';
+SET @AllianceEarthenRacialNameesMX        = '';
+SET @AllianceEarthenRacialNameruRU        = '';
+SET @AllianceEarthenRacialNamejaJP        = '';
+SET @AllianceEarthenRacialNameptPT        = '';
+SET @AllianceEarthenRacialNameitIT        = '';
+SET @AllianceEarthenRacialNameUnk1        = '';
+SET @AllianceEarthenRacialNameUnk2        = '';
+SET @AllianceEarthenRacialNameUnk3        = '';
+SET @AllianceEarthenRacialNameUnk4        = '';
+
+SET @AllianceEarthenPlayerenUS            = '"PLAYER", " Earthen"';
+SET @AllianceEarthenPlayerkoKR            = '';
+SET @AllianceEarthenPlayerfrFR            = '';
+SET @AllianceEarthenPlayerdeDE            = '';
+SET @AllianceEarthenPlayerzhCN            = '';
+SET @AllianceEarthenPlayerzhTW            = '';
+SET @AllianceEarthenPlayeresES            = '';
+SET @AllianceEarthenPlayeresMX            = '';
+SET @AllianceEarthenPlayerruRU            = '';
+SET @AllianceEarthenPlayerjaJP            = '';
+SET @AllianceEarthenPlayerptPT            = '';
+SET @AllianceEarthenPlayeritIT            = '';
+SET @AllianceEarthenPlayerUnk1            = '';
+SET @AllianceEarthenPlayerUnk2            = '';
+SET @AllianceEarthenPlayerUnk3            = '';
+SET @AllianceEarthenPlayerUnk4            = '';
+
+SET @AllianceEarthenFactionNameenUS       = 'Earthen of the Alliance';
+SET @AllianceEarthenFactionNamekoKR       = '';
+SET @AllianceEarthenFactionNamefrFR       = '';
+SET @AllianceEarthenFactionNamedeDE       = '';
+SET @AllianceEarthenFactionNamezhCN       = '';
+SET @AllianceEarthenFactionNamezhTW       = '';
+SET @AllianceEarthenFactionNameesES       = '';
+SET @AllianceEarthenFactionNameesMX       = '';
+SET @AllianceEarthenFactionNameruRU       = '';
+SET @AllianceEarthenFactionNamejaJP       = '';
+SET @AllianceEarthenFactionNameptPT       = '';
+SET @AllianceEarthenFactionNameitIT       = '';
+SET @AllianceEarthenFactionNameUnk1       = '';
+SET @AllianceEarthenFactionNameUnk2       = '';
+SET @AllianceEarthenFactionNameUnk3       = '';
+SET @AllianceEarthenFactionNameUnk4       = '';
+
+SET @AllianceEarthenFactionDescriptionenUS = 'Earthen who have joined the Alliance.';
+SET @AllianceEarthenFactionDescriptionkoKR = '';
+SET @AllianceEarthenFactionDescriptionfrFR = '';
+SET @AllianceEarthenFactionDescriptiondeDE = '';
+SET @AllianceEarthenFactionDescriptionzhCN = '';
+SET @AllianceEarthenFactionDescriptionzhTW = '';
+SET @AllianceEarthenFactionDescriptionesES = '';
+SET @AllianceEarthenFactionDescriptionesMX = '';
+SET @AllianceEarthenFactionDescriptionruRU = '';
+SET @AllianceEarthenFactionDescriptionjaJP = '';
+SET @AllianceEarthenFactionDescriptionptPT = '';
+SET @AllianceEarthenFactionDescriptionitIT = '';
+SET @AllianceEarthenFactionDescriptionUnk1 = '';
+SET @AllianceEarthenFactionDescriptionUnk2 = '';
+SET @AllianceEarthenFactionDescriptionUnk3 = '';
+SET @AllianceEarthenFactionDescriptionUnk4 = '';
+
+SET @AllianceEarthenAchievementenUS       = 'Realm First! Level 80 Earthen';
+SET @AllianceEarthenAchievementkoKR       = '';
+SET @AllianceEarthenAchievementfrFR       = '';
+SET @AllianceEarthenAchievementdeDE       = '';
+SET @AllianceEarthenAchievementzhCN       = '';
+SET @AllianceEarthenAchievementzhTW       = '';
+SET @AllianceEarthenAchievementesES       = '';
+SET @AllianceEarthenAchievementesMX       = '';
+SET @AllianceEarthenAchievementruRU       = '';
+SET @AllianceEarthenAchievementjaJP       = '';
+SET @AllianceEarthenAchievementptPT       = '';
+SET @AllianceEarthenAchievementitIT       = '';
+SET @AllianceEarthenAchievementUnk1       = '';
+SET @AllianceEarthenAchievementUnk2       = '';
+SET @AllianceEarthenAchievementUnk3       = '';
+SET @AllianceEarthenAchievementUnk4       = '';
+
+SET @AllianceEarthenAchievementDescriptionenUS = 'First earthen on the realm to achieve level 80.';
+SET @AllianceEarthenAchievementDescriptionkoKR = '';
+SET @AllianceEarthenAchievementDescriptionfrFR = '';
+SET @AllianceEarthenAchievementDescriptiondeDE = '';
+SET @AllianceEarthenAchievementDescriptionzhCN = '';
+SET @AllianceEarthenAchievementDescriptionzhTW = '';
+SET @AllianceEarthenAchievementDescriptionesES = '';
+SET @AllianceEarthenAchievementDescriptionesMX = '';
+SET @AllianceEarthenAchievementDescriptionruRU = '';
+SET @AllianceEarthenAchievementDescriptionjaJP = '';
+SET @AllianceEarthenAchievementDescriptionptPT = '';
+SET @AllianceEarthenAchievementDescriptionitIT = '';
+SET @AllianceEarthenAchievementDescriptionUnk1 = '';
+SET @AllianceEarthenAchievementDescriptionUnk2 = '';
+SET @AllianceEarthenAchievementDescriptionUnk3 = '';
+SET @AllianceEarthenAchievementDescriptionUnk4 = '';
