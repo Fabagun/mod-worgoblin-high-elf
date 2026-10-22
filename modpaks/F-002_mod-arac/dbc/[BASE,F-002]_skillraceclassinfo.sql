@@ -1,7 +1,8 @@
 -- [F-002] mod-arac: skillraceclassinfo: 0 inserts, 108 updates, 0 deletes
 
-UPDATE `skillraceclassinfo` SET `race_mask` = `race_mask`   | @AllianceRaceMask WHERE `race_mask` & @AllianceRaceMask;
-UPDATE `skillraceclassinfo` SET `race_mask` = `race_mask`   | @HordeRaceMask    WHERE `race_mask` & @HordeRaceMask;
+-- Skills every base Alliance/Horde race has go to every race of that faction (catches any the list below misses)
+UPDATE `skillraceclassinfo` SET `race_mask` = `race_mask`   | @AllianceMask WHERE (`race_mask` & @BaseAllianceMask) = @BaseAllianceMask;
+UPDATE `skillraceclassinfo` SET `race_mask` = `race_mask`   | @HordeMask    WHERE (`race_mask` & @BaseHordeMask) = @BaseHordeMask;
 
 -- Changed values
 UPDATE `skillraceclassinfo` SET `race_mask` = `race_mask`   | @AllianceMask     WHERE `id` IN (
