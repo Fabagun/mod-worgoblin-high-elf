@@ -443,8 +443,8 @@ function SetCharacterRace(id)
 	end
 	CharacterCreateConfigurationBackground:SetVertexColor(backdropColor[4], backdropColor[5], backdropColor[6]);
 
-	local backgroundFilename = GetCreateBackgroundModel();
-	SetBackgroundModel(CharacterCreate, backgroundFilename);
+	local backgroundFilename, backgroundRace = GetCreateBackgroundModel();
+	SetBackgroundModel(CharacterCreate, backgroundFilename, backgroundRace);
 end
 
 function SetCharacterClass(id)
@@ -491,16 +491,6 @@ end
 
 function CharacterCreate_UpdateModel(self)
 	UpdateCustomizationScene();
-
-	-- UpdateCustomizationScene() resyncs the live camera every frame, which
-	-- would silently overwrite any one-time SetPosition() call elsewhere.
-	-- Reapply our per-race framing fix (or the live /modeloffset debug
-	-- value) here, after the native reset, so it actually sticks.
-	local offset = CharacterCreateDebugOffset or BackgroundModelPositionOffset[self.backgroundRaceKey or ""];
-	if ( offset ) then
-		self:SetPosition(offset.x, offset.y, offset.z);
-	end
-
 	self:AdvanceTime();
 end
 
