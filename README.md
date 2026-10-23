@@ -1,4 +1,4 @@
-# mod-worgoblin-high-elf
+# WHE-32-bit (formerly mod-worgoblin-high-elf)
 (This is the default 32-bit racemask version. Use the [256-bit](https://github.com/Medviten/WHE-256-bit) version if you need more than 31 playable races.)
 
 > [!WARNING]
@@ -84,14 +84,17 @@ Copy the module into your AzerothCore modules directory:
 ```text
 AzerothCore/
 └── modules/
-    └── mod-worgoblin-high-elf/
+    └── WHE-32-bit/
 ```
+
+The folder name matters: AzerothCore calls the module's script loader by it. Use `WHE-32-bit` (the repository's
+name, the default when cloning) or `mod-worgoblin-high-elf` (the module's former name); any other name fails to link.
 
 ---
 
 ## 2. Apply whe-acore.patch (and optionally playerbots patch)
 
-Copy mod-worgoblin-high-elf/integration/whe-acore.patch into your AzerothCore root directory. Apply it like this:
+Copy WHE-32-bit/integration/whe-acore.patch into your AzerothCore root directory. Apply it like this:
 
 ```text
 git apply --ignore-space-change --ignore-whitespace whe-acore.patch
@@ -99,7 +102,7 @@ git add .
 git commit -m "Add whe-acore patch"
 ```
 
-If you want playerbots, also copy mod-worgoblin-high-elf/integration/whe-playerbots.patch into your AzerothCore/modules/mod-playerbots/ directory and apply:
+If you want playerbots, also copy WHE-32-bit/integration/whe-playerbots.patch into your AzerothCore/modules/mod-playerbots/ directory and apply:
 
 ```text
 git apply --ignore-space-change --ignore-whitespace whe-playerbots.patch

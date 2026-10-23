@@ -992,6 +992,7 @@ SET @WorgenSkillLineAbility1                                   =    21981;
 SET @WorgenSkillLineAbility2                                   =    21982;
 SET @WorgenSkillLineAbility3                                   =    21983;
 SET @WorgenSkillLineAbility4                                   =    21984;
+SET @WorgenSkillLineAbility5                                   =    31501; -- Running Wild (not learned from the skill: src/modpaks/F-024_mod-playable-worgen)
 SET @GoblinSkillLineAbility1                                   =    21985;
 SET @GoblinSkillLineAbility2                                   =    21986;
 SET @GoblinSkillLineAbility3                                   =    21987;
