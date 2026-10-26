@@ -15,7 +15,7 @@
 
 The script is designed to *replace* your DBCs and world DB! **Back them up!**
 
-A highly modular approach to DBC-heavy mods, relying on DBCTool to bulk edit DBCs in MySQL before exporting them. First and foremost a custom playable race module for **AzerothCore 3.3.5a**.
+A highly modular approach to DBC-heavy mods, relying on [DBCTool](https://github.com/Medviten/DBCTool-32-bit) to bulk edit DBCs in MySQL before exporting them. First and foremost a custom playable race module for **AzerothCore 3.3.5a**.
 
 This project started as a merger of Worgoblin and AzerothCore High Elf (which are mutually exclusive out of the box), as well as ARAC, and has since been expanded with additional playable races and mods like Faction Free.
 
@@ -31,7 +31,7 @@ My SQL files make heavy use of variables for readability and editability. You're
 
 Using several independent follow-up patches increases the possibility of mismatched files or installation-order problems because only the last of each DBC counts at runtime, with no automatic combination being possible.
 
-To solve that, this repository lets you prepare the DBCs in MySQL before exporting them with DBCTool. Comment out the modpaks you don't need, point build-dbc.sh to a disposable MySQL database, and watch it merge the DBCs for you.
+To solve that, this repository lets you prepare the DBCs in MySQL before exporting them with [DBCTool](https://github.com/Medviten/DBCTool-32-bit). Comment out the modpaks you don't need, point build-dbc.sh to a disposable MySQL database, and watch it merge the DBCs for you.
 
 If you want to change something, simply add or edit an SQL file and have it apply after the file it overrides.
 
@@ -112,9 +112,9 @@ git commit -m "Add whe-playerbots patch"
 
 ## 3. Set up the DBC-SQL pipeline
 
-Edit the config file in worgoblin-high-elf/tools/dbctool/ and point it to a disposable database (default: dbc). It will **drop and recreate** it, which requires the proper permissions, and backing up your DB first is a very good idea. SQL dumps are cheap.
+Edit the config in [DBCTool](https://github.com/Medviten/DBCTool-32-bit) and point it to a disposable database (e.g. `dbc`). It will **drop and recreate** it, which requires the proper permissions, and backing up your DB first is a very good idea. SQL dumps are cheap.
 
-Import clean DBCs, make any modifications you want, and then dump the database. Point DBCTool at this dump – it's your save state.
+Import clean DBCs, make any modifications you want, and then dump the database. Point [DBCTool](https://github.com/Medviten/DBCTool-32-bit) at this dump – it's your save state.
 
 Edit the manifest in worgoblin-high-elf/tools/scripts/ by commenting out features to exclude. Edit build-dbc.conf with your paths and logins, **back up your DBC files**, then run build-dbc.sh.
 
