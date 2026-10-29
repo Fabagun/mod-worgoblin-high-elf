@@ -25,6 +25,7 @@ F-009_morph-with-gear
 #F-004_mod-worgoblin # Legacy (requires recompile for some racials to function)
 F-023_mod-playable-goblin # requires recompile for Best Deals Anywhere and Rocket Barrage
 F-024_mod-playable-worgen # recompile for Running Wild functionality, but can be bypassed using ALE (see lua_scripts)
+F-063_worgen_racial_spells # requires F-024 (listed after it), a recompile and the patched client: Running Wild as a mount on oneself, Two Forms as altered form
 F-005_mod-azerothcore-high-elf
 F-007_mod-maghar
 #F-037_maghar-modern-assets # Optional: modern Mag'har models and textures (requires F-007)

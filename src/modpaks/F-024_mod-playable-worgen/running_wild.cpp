@@ -1,5 +1,6 @@
 // Running Wild (F-024_mod-playable-worgen)
 
+#include "Chat.h"
 #include "Config.h"
 #include "ModpakScripts.h"
 #include "Player.h"
@@ -14,6 +15,7 @@ enum WorgenRiding
     SPELL_RUNNING_WILD       = 87840, // Cataclysm ID (@SpellRunningWildMale60)
 
     RUNNING_WILD_LEVEL       = 20,
+    RIDING_SKILL_APPRENTICE  = 75,
     RIDING_SKILL_JOURNEYMAN  = 150,
 };
 
@@ -23,10 +25,32 @@ constexpr char const* RUNNING_WILD_SCRIPT = "spell_worgen_running_wild";
 // creature, so instead of mounting nothing (display 0), mount the player's own native display; the patched client
 // draws a mount display equal to the native display as the player running on all fours. Running Wild is taken in the
 // native form, so it drops the altered (human) form first. Speed follows riding skill, like Cataclysm's
-// MountCapability: +60%, or +100% from Journeyman Riding (150 skill).
-class spell_worgen_running_wild : public AuraScript
+// MountCapability: +60%, or +100% from Journeyman Riding (150 skill). Like any mount, it needs Apprentice Riding
+// (75 skill) to cast, since Worgen learn it at level 20 whether or not riding is handed out for free.
+class spell_worgen_running_wild : public SpellScript
 {
-    PrepareAuraScript(spell_worgen_running_wild);
+    PrepareSpellScript(spell_worgen_running_wild);
+
+    SpellCastResult CheckRiding()
+    {
+        Player* player = GetCaster() ? GetCaster()->ToPlayer() : nullptr;
+        if (!player || player->GetSkillValue(SKILL_RIDING) >= RIDING_SKILL_APPRENTICE)
+            return SPELL_CAST_OK;
+
+        // SPELL_FAILED_MIN_SKILL would show the skill and amount, but the core sends both as 0
+        ChatHandler(player->GetSession()).SendNotification("Requires Apprentice Riding");
+        return SPELL_FAILED_DONT_REPORT;
+    }
+
+    void Register() override
+    {
+        OnCheckCast += SpellCheckCastFn(spell_worgen_running_wild::CheckRiding);
+    }
+};
+
+class spell_worgen_running_wild_aura : public AuraScript
+{
+    PrepareAuraScript(spell_worgen_running_wild_aura);
 
     void HandleMount(AuraEffect const* /*aurEff*/, AuraEffectHandleModes /*mode*/)
     {
@@ -49,8 +73,8 @@ class spell_worgen_running_wild : public AuraScript
     void Register() override
     {
         // Same modes as the default mounted aura handler, so it never runs for this spell
-        OnEffectApply += AuraEffectApplyFn(spell_worgen_running_wild::HandleMount, EFFECT_0, SPELL_AURA_MOUNTED, AURA_EFFECT_HANDLE_SEND_FOR_CLIENT_MASK);
-        DoEffectCalcAmount += AuraEffectCalcAmountFn(spell_worgen_running_wild::CalculateSpeed, EFFECT_1, SPELL_AURA_MOD_INCREASE_MOUNTED_SPEED);
+        OnEffectApply += AuraEffectApplyFn(spell_worgen_running_wild_aura::HandleMount, EFFECT_0, SPELL_AURA_MOUNTED, AURA_EFFECT_HANDLE_SEND_FOR_CLIENT_MASK);
+        DoEffectCalcAmount += AuraEffectCalcAmountFn(spell_worgen_running_wild_aura::CalculateSpeed, EFFECT_1, SPELL_AURA_MOD_INCREASE_MOUNTED_SPEED);
     }
 };
 
@@ -95,6 +119,6 @@ private:
 
 void AddSC_F024_Worgen()
 {
-    RegisterSpellScript(spell_worgen_running_wild);
+    RegisterSpellAndAuraScriptPair(spell_worgen_running_wild, spell_worgen_running_wild_aura);
     new player_worgen_running_wild();
 }
