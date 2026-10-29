@@ -21,5 +21,6 @@ WHERE `id` = @RunningWildMale60;
 DELETE FROM `spell` WHERE `id` IN (
 	@RunningWildMale100,
 	@RunningWildFemale60,
-	@RunningWildFemale100
+	@RunningWildFemale100,
+    @TwoFormsFemale
 ); 

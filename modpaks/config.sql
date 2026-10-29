@@ -325,7 +325,7 @@ SET @Troll                                                     =    8;
 SET @Goblin                                                    =    9;
 SET @BloodElf                                                  =   10;
 SET @Draenei                                                   =   11;
-SET @NextRace                                                  =   12; -- Reserved for Worgen – increments before assignment
+SET @NextRace                                                  =   13; -- Reserved for Worgen (12) and Gilnean (13, Worgen + 1 for the client's alteredFormRaces) – increments before assignment
 
 -- NPC Races
 SET @NPCGoblin                                                 =   169;

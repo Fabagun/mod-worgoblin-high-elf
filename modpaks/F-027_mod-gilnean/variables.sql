@@ -1,7 +1,7 @@
 -- Race ID
-SET @Gilnean                           := @NextRace := @NextRace +1; -- default: 23
-SET @GilneanMask                       = 1 << (@Gilnean - 1);        -- default: 4194304
-SET @GilneanHelmetMask                 = 1 << @Gilnean;              -- default: 8388608
+SET @Gilnean                           := @Worgen + 1;               -- 13: reserved in config.sql, so the client's alteredFormRaces is "12=13"
+SET @GilneanMask                       = 1 << (@Gilnean - 1);        -- 4096
+SET @GilneanHelmetMask                 = 1 << @Gilnean;              -- 8192
 
 -- Important variable updates (Alliance vs. Horde)
 SET @AllianceMask                      = @AllianceMask     | @GilneanMask;
@@ -14,7 +14,7 @@ SET @GilneanKnowThyEnemy               = @KnowThyEnemyAlliance;
 
 -- Miscellaneous
 SET @GilneanExplorationSound           = @HumanExplorationSound;
-SET @GilneanCinematicSequence          = @HumanCinematicSequence;
+SET @GilneanCinematicSequence          = @NightElfCinematicSequence;
 SET @GilneanBlood                      = 1;
 SET @GilneanMaleModelPath              = 'Character\\Gilnean\\Male\\GilneanMale.M2'; -- copied from 'Character\\Human\\Male\\HumanMale.mdx'
 SET @GilneanFemaleModelPath            = 'Character\\Gilnean\\Female\\GilneanFemale.M2'; -- copied from 'Character\\Human\\Female\\HumanFemale.mdx'
